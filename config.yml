@@ -5,7 +5,6 @@
 
 version: 1
 update_configs:
-
   # Keep package.json (& lockfiles) up to date as soon as
   # new versions are published to the npm registry
   - package_manager: "javascript"
@@ -31,3 +30,7 @@ update_configs:
     update_schedule: "daily"
     default_labels:
       - "dependabot-config"
+    automerged_updates: 
+      - match:
+          dependency_type: "all"
+          update_type: "all"
