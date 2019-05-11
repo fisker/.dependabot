@@ -5,6 +5,17 @@
 
 version: 1
 update_configs:
+  # Keep .dependabot up to date
+  - package_manager: "submodules"
+    directory: "/"
+    update_schedule: "daily"
+    default_labels:
+      - "dependabot-config"
+    automerged_updates:
+      - match:
+          dependency_type: "all"
+          update_type: "all"
+
   # Keep package.json (& lockfiles) up to date as soon as
   # new versions are published to the npm registry
   - package_manager: "javascript"
@@ -23,14 +34,3 @@ update_configs:
 
     # auto update package.json
     version_requirement_updates: "increase_versions"
-
-  # Keep .dependabot up to date
-  - package_manager: "submodules"
-    directory: "/"
-    update_schedule: "daily"
-    default_labels:
-      - "dependabot-config"
-    automerged_updates:
-      - match:
-          dependency_type: "all"
-          update_type: "all"
